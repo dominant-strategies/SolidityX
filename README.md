@@ -12,6 +12,28 @@ Solidity is a statically typed, contract-oriented, high-level language for imple
 
 For a good overview and starting point, please check out the official [Solidity Language Portal](https://soliditylang.org).
 
+## Building on MacOS
+You likely need to install Xcode. If you don't want to install Xcode you can try ``` xcode-select --install ```
+```
+brew install cmake
+```
+```
+brew install boost
+```
+```
+brew install ccache
+```
+```
+sudo xcodebuild -license accept
+```
+```
+#note: this will install binaries solc and soltest at usr/local/bin
+./scripts/build.sh
+```
+Running:
+```
+solc --pretty-json --bin --asm test.sol
+```
 ## Table of Contents
 
 - [Background](#background)
@@ -46,12 +68,25 @@ found in the [Solidity documentation](https://docs.soliditylang.org/en/latest/in
 A "Hello World" program in Solidity is of even less use than in other languages, but still:
 
 ```solidity
-// SPDX-License-Identifier: MIT
 pragma solidity >=0.6.0 <0.9.0;
-
-contract HelloWorld {
-    function helloWorld() external pure returns (string memory) {
-        return "Hello, World!";
+contract ETX {
+    constructor() public payable {
+        bool result;
+        assembly {
+            result := etx(
+                0,                                          // temp variable, can be anything (unused)
+                0x5A457339697CB56E5a9BfA5267eA80d2c6375d98, // address to send to
+                500000000000000000,                         // amount to send in wei
+                100000,                                     // gas limit (entire gas limit will be consumed and sent to destination)
+                1,                                          // miner tip in wei
+                1,                                          // base fee in wei
+                0,                                          // input offset in memory
+                0,                                          // input size in memory
+                0,                                          // accesslist offset in memory
+                0                                           // accesslist size in memory
+            )
+        }
+        // do something with the result
     }
 }
 ```

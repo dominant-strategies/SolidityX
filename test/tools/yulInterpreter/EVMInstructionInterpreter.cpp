@@ -372,6 +372,7 @@ u256 EVMInstructionInterpreter::eval(
 		m_state.trace.clear();
 		BOOST_THROW_EXCEPTION(ExplicitlyTerminated());
 	case Instruction::POP:
+	case Instruction::ETX:
 		break;
 	// --------------- invalid in strict assembly ---------------
 	case Instruction::JUMP:
