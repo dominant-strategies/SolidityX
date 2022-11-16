@@ -170,6 +170,7 @@ std::map<std::string, Instruction> const solidity::evmasm::c_instructions =
 	{ "DELEGATECALL", Instruction::DELEGATECALL },
 	{ "CREATE2", Instruction::CREATE2 },
 	{ "ETX", Instruction::ETX },
+	{ "ISADDRINTERNAL", Instruction::ISADDRINTERNAL },
 	{ "REVERT", Instruction::REVERT },
 	{ "INVALID", Instruction::INVALID },
 	{ "SELFDESTRUCT", Instruction::SELFDESTRUCT }
@@ -318,6 +319,7 @@ static std::map<Instruction, InstructionInfo> const c_instructionInfo =
 	{ Instruction::STATICCALL,	{ "STATICCALL",		0, 6, 1, true, Tier::Special } },
 	{ Instruction::CREATE2,		{ "CREATE2",		0, 4, 1, true, Tier::Special } },
 	{ Instruction::ETX,			{ "ETX",		0, 10, 1, false, Tier::Base } },
+	{ Instruction::ISADDRINTERNAL,	{ "ISADDRINTERNAL",		0, 1, 1, false, Tier::VeryLow } },
 	{ Instruction::REVERT,		{ "REVERT",		0, 2, 0, true, Tier::Zero } },
 	{ Instruction::INVALID,		{ "INVALID",		0, 0, 0, true, Tier::Zero } },
 	{ Instruction::SELFDESTRUCT,	{ "SELFDESTRUCT",		0, 1, 0, true, Tier::Special } }
