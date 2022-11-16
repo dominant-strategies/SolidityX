@@ -377,6 +377,7 @@ u256 EVMInstructionInterpreter::eval(
 		BOOST_THROW_EXCEPTION(ExplicitlyTerminated());
 	case Instruction::POP:
 	case Instruction::ETX:
+	case Instruction::ISADDRINTERNAL:
 		break;
 	// --------------- invalid in strict assembly ---------------
 	case Instruction::JUMP:
