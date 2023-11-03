@@ -34,6 +34,41 @@ Running:
 ```
 solc --pretty-json --bin --asm test.sol
 ```
+
+## Building on Ubuntu 22.04
+```
+sudo apt update
+```
+```
+sudo apt upgrade
+```
+```
+sudo apt install build-essential
+```
+```
+sudo apt install cmake
+```
+```
+sudo apt install libboost-all-dev
+```
+```
+git clone https://github.com/dominant-strategies/SolidityX
+```
+```
+cd SolidityX
+```
+```
+mkdir build
+```
+```
+cd build
+```
+```
+cmake ..
+```
+```
+make
+```
 ## Table of Contents
 
 - [Background](#background)
