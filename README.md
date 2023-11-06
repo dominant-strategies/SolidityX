@@ -13,62 +13,72 @@ Solidity is a statically typed, contract-oriented, high-level language for imple
 For a good overview and starting point, please check out the official [Solidity Language Portal](https://soliditylang.org).
 
 ## Building on MacOS
-You likely need to install Xcode. If you don't want to install Xcode you can try ``` xcode-select --install ```
+
+You likely need to install Xcode. If you don't want to install Xcode you can try `xcode-select --install`
+
+**Install dependencies**:
+
+```shell
+brew install cmake boost ccache
 ```
-brew install cmake
-```
-```
-brew install boost
-```
-```
-brew install ccache
-```
-```
+
+**Accept Xcode license without launching GUI**:
+
+```shell
 sudo xcodebuild -license accept
 ```
+
+**Clone and navigate to SolidityX directory**:
+
+```shell
+git clone https://github.com/dominant-strategies/SolidityX.git && cd SolidityX
 ```
-#note: this will install binaries solc and soltest at usr/local/bin
+
+**Run build script**:
+
+```shell
+# note: this will install binaries solc and soltest at usr/local/bin
 ./scripts/build.sh
 ```
-Running:
-```
+
+**Running**:
+
+```shell
 solc --pretty-json --bin --asm test.sol
 ```
 
 ## Building on Ubuntu 22.04
+
+**Update and upgrade**:
+
+```shell
+sudo apt update && sudo apt upgrade -y
 ```
-sudo apt update
+
+**Install dependencies**:
+
+```shell
+sudo apt install build-essential cmake libboost-all-dev
 ```
+
+**Clone and navigate to SolidityX directory**:
+
+```shell
+git clone https://github.com/dominant-strategies/SolidityX.git && cd SolidityX
 ```
-sudo apt upgrade
+
+**Create and navigate to build directory**:
+
+```shell
+mkdir build && cd build
 ```
+
+**Build and install**:
+
+```shell
+cmake .. && make
 ```
-sudo apt install build-essential
-```
-```
-sudo apt install cmake
-```
-```
-sudo apt install libboost-all-dev
-```
-```
-git clone https://github.com/dominant-strategies/SolidityX
-```
-```
-cd SolidityX
-```
-```
-mkdir build
-```
-```
-cd build
-```
-```
-cmake ..
-```
-```
-make
-```
+
 ## Table of Contents
 
 - [Background](#background)
@@ -96,7 +106,6 @@ number [to indicate this fast pace of change](https://semver.org/#spec-item-4).
 
 Instructions about how to build and install the Solidity compiler can be
 found in the [Solidity documentation](https://docs.soliditylang.org/en/latest/installing-solidity.html#building-from-source).
-
 
 ## Example
 
@@ -149,10 +158,12 @@ You can find our current feature and bug priorities for forthcoming
 releases in the [projects section](https://github.com/ethereum/solidity/projects).
 
 ## Maintainers
+
 The Solidity programming language and compiler are open-source community projects governed by a core team.
 The core team is sponsored by the [Ethereum Foundation](https://ethereum.foundation/).
 
 ## License
+
 Solidity is licensed under [GNU General Public License v3.0](LICENSE.txt).
 
 Some third-party code has its [own licensing terms](cmake/templates/license.h.in).
