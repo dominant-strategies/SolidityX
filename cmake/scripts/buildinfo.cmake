@@ -19,16 +19,6 @@ if (NOT ETH_BUILD_PLATFORM)
 	set(ETH_BUILD_PLATFORM "unknown")
 endif()
 
-# Logic here: If prerelease.txt exists but is empty, it is a non-pre release.
-# If it does not exist, create our own prerelease string
-if (EXISTS ${ETH_SOURCE_DIR}/prerelease.txt)
-	file(READ ${ETH_SOURCE_DIR}/prerelease.txt SOL_VERSION_PRERELEASE)
-	string(STRIP "${SOL_VERSION_PRERELEASE}" SOL_VERSION_PRERELEASE)
-else()
-	string(TIMESTAMP SOL_VERSION_PRERELEASE "develop.%Y.%m.%d" UTC)
-	string(REPLACE .0 . SOL_VERSION_PRERELEASE "${SOL_VERSION_PRERELEASE}")
-endif()
-
 if (EXISTS ${ETH_SOURCE_DIR}/commit_hash.txt)
 	file(READ ${ETH_SOURCE_DIR}/commit_hash.txt SOL_COMMIT_HASH)
 	string(STRIP ${SOL_COMMIT_HASH} SOL_COMMIT_HASH)
